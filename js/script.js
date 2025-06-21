@@ -40,6 +40,11 @@ canvas.addEventListener('mousemove', (e) => {
   isMouseMoving = true;
 });
 
+document.getElementById('resizeBtn').addEventListener('click', () => {
+  resizeCanvasToVideo(); // Recalculate canvas size
+});
+
+
 /* function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
@@ -71,27 +76,15 @@ function resizeCanvasToVideo() {
 
 function draw() {
 
+    const brightness = parseFloat(document.getElementById('brightness').value);
+    const contrast = parseFloat(document.getElementById('contrast').value);
+
+    ctx.filter = `brightness(${brightness}) contrast(${contrast})`;
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-/*   if (isMouseMoving) {
-    const zoomSize = 100;
-    const zoom = 2;
+    // Reset filter before drawing magnifier
+    ctx.filter = 'none';
 
-    const sx = mouseX - zoomSize / (2 * zoom);
-    const sy = mouseY - zoomSize / (2 * zoom);
-    const sWidth = zoomSize / zoom;
-    const sHeight = zoomSize / zoom;
-
-    ctx.strokeStyle = 'red';
-    ctx.lineWidth = 2;
-    ctx.strokeRect(mouseX - zoomSize / 2, mouseY - zoomSize / 2, zoomSize, zoomSize);
-
-    ctx.drawImage(
-      video,
-      sx, sy, sWidth, sHeight,
-      mouseX - zoomSize / 2, mouseY - zoomSize / 2, zoomSize, zoomSize
-    );
-  } */
 
 if (isMouseMoving && magnifierOn) {
 
