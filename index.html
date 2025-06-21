@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Webcam Magnifier</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    background-color: black; /* Optional for contrast */
+  }
+  canvas {
+    display: block;
+  }
+  #toggleBtn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    font-size: 1.2em;
+    padding: 0.4em 0.8em;
+  }
+</style>
+</head>
+<body>
+  <video id="video" autoplay playsinline style="display:none;"></video>
+  
+  <button id="toggleBtn" style="position: absolute; top: 10px; left: 10px; z-index: 1;">
+  Toggle Magnifier
+</button>
+
+<canvas id="canvas"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
