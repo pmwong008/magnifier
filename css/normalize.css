@@ -57,6 +57,7 @@ progress,
 video {
   display: inline-block; /* 1 */
   vertical-align: baseline; /* 2 */
+
 }
 
 /**
