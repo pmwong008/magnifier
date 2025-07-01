@@ -17,18 +17,21 @@ navigator.mediaDevices.getUserMedia({ video: true })
     video.srcObject = stream;
     video.addEventListener('loadedmetadata', () => {
 
-    // Set canvas size based on video aspect ratio
-    // const videoAspect = video.videoWidth / video.videoHeight;
     resizeCanvasToVideo();
 
-    // resizeCanvas();
-    // canvas.width = video.videoWidth;
-    // canvas.height = video.videoHeight;
     draw();
     });
 })
 .catch(err => {
     console.error('Error accessing webcam:', err);
+    alert(
+      "Couldn't access your webcam.\n\n" +
+      "This might be because:\n" +
+      "Another app (like Zoom, Chrome, etc.) is using it\n" +
+      "Your browser denied permission\n" +
+      "The camera is not connected\n\n" +
+      "Please check and try again."
+    );
 });
 
 
@@ -44,13 +47,6 @@ document.getElementById('resizeBtn').addEventListener('click', () => {
   resizeCanvasToVideo(); // Recalculate canvas size
 });
 
-
-/* function resizeCanvas() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-}
-
-window.addEventListener('resize', resizeCanvas); */
 
 function resizeCanvasToVideo() {
   const videoAspect = video.videoWidth / video.videoHeight;
@@ -104,8 +100,6 @@ if (isMouseMoving && magnifierOn) {
     // Scale mouse position from canvas to video space
     const sx = mouseX * scaleX - sWidth / 2;
     const sy = mouseY * scaleY - sHeight / 2;
-    // const sx = mouseX * scaleX - zoomSize / (2 * zoom);
-    // const sy = mouseY * scaleY - zoomSize / (2 * zoom);
 
     // Position on canvas 
     const dx = mouseX - zoomSize / 2;

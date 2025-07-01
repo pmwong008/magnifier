@@ -1,41 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Webcam Magnifier</title>
-<link rel="stylesheet" href="css/normalize.css">
- <link rel="stylesheet" href="css/skeleton.css">
-<script src="js/script.js" defer></script>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>Webcam Magnifier</title>
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/skeleton.css">
+		<script src="js/script.js" defer></script>
 
 
-</head>
-<body>
-  
-  
-  <!-- Control panel -->
-  <!-- div class="container" -->
-    <div>
-      <div class="column">
-        <button class="button" id="toggleBtn">Toggle Magnifier</button>
-        <button class="button" id="resizeBtn">Reload to Fit Browser</button>
+	</head>
+	<body>
 
 
-        <label for="brightness">Brightness</label>
-        <input type="range" id="brightness" min="0.5" max="2" step="0.1" value="1">
-  
-        <label for="contrast">Contrast</label>
-        <input type="range" id="contrast" min="0.5" max="2" step="0.1" value="1">
-      </div>
-    
-    <!-- Video is hidden but feeds the canvas -->
-  <video id="video" autoplay playsinline style="display: none;"></video>
+		<!-- Control panel -->
+		<!-- div class="container" -->
+			<div class="row"> <button class="button" id="toggleBtn">Toggle Magnifier</button>
+			<button class="button" id="resizeBtn">Reload to Fit Browser</button>
 
-  <!-- Canvas fills the screen -->
-  <canvas id="canvas"></canvas>
-  </div>
-  <!-- /div -->
 
-</body>
+			<label for="brightness">Brightness</label>
+			<input type="range" id="brightness" min="0.5" max="2" step="0.1" value="1">
 
-</html>
+			<label for="contrast">Contrast</label>
+			<input type="range" id="contrast" min="0.5" max="2" step="0.1" value="1">
+		</div>
+
+		<div>
+			<i>If the screen goes to sleep, wake it by clicking the mouse or pressing any key.</i>
+		</div>
+
+		<!-- Video is hidden but feeds the canvas -->
+		<video id="video" autoplay playsinline style="display: none;"></video>
+
+		<!-- Canvas fills the screen -->
+		<canvas id="canvas"></canvas>
+	</body>
+</html></div><!-- /div --></body></html>
