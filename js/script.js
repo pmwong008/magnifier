@@ -12,7 +12,9 @@ document.getElementById('toggleBtn').addEventListener('click', () => {
 });
 
 
-navigator.mediaDevices.getUserMedia({ video: true })
+navigator.mediaDevices.getUserMedia({
+  video: { facingMode: "environment" }
+})
 .then(stream => {
     video.srcObject = stream;
     video.addEventListener('loadedmetadata', () => {
