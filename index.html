@@ -4,39 +4,56 @@
 		<meta charset="UTF-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<title>Webcam Magnifier</title>
-		<link rel="stylesheet" href="css/normalize.css">
-		<link rel="stylesheet" href="css/skeleton.css">
+		
+		<link rel="stylesheet" href="css/styleMagnif.css">
 		<script src="js/script.js" defer></script>
 
 
 	</head>
 	<body>
+    <div>
+      <div id="buttonBar">
+        <button id="toggleBtn">Toggle Magnifier</button>
+        <button id="resizeBtn">Reload to Fit Browser</button>
+      </div>
 
+      <div id="sliderBar">
 
-		<!-- Control panel -->
-		<!-- div class="container" -->
-			<div class="row"> <button class="button" id="toggleBtn">Toggle Magnifier</button>
-			<button class="button" id="resizeBtn">Reload to Fit Browser</button>
+        <label for="brightness">Brightness</label>
+        <input type="range" id="brightness" min="0.5" max="2" step="0.1" value="1">
 
+        <label for="contrast">Contrast</label>
+        <input type="range" id="contrast" min="0.5" max="2" step="0.1" value="1">
+      </div>
 
-			<label for="brightness">Brightness</label>
-			<input type="range" id="brightness" min="0.5" max="2" step="0.1" value="1">
+      <div>
+        <i>If the screen goes to sleep, wake it by clicking the mouse or pressing any key _|</i>
+        <a href="about.html" >
+          About This Project
+        </a>
+      </div>
+      <div id="intro-overlay" class="hidden-once-started">
+        <div style="max-width: 600px; line-height: 1.6; font-size: 18px;">
+          <p>
+            🖥️ <strong>This magnifier is best used with salvaged home PCs and monitors.</strong>
+          </p>
+          <p>
+            📱 Mobile users are welcome to explore it too, though the camera might default to selfie view or behave differently. That’s okay — it’s not meant to be a phone app.
+          </p>
+          <p>
+            🔍 This tool focuses on clarity and slow observation. Let’s begin!
+          </p>
+        </div>
+        <button id="start-btn">Launch Magnifier!</button>  
+      </div>
 
-			<label for="contrast">Contrast</label>
-			<input type="range" id="contrast" min="0.5" max="2" step="0.1" value="1">
-		</div>
+      <div>
+        <!-- Video is hidden but feeds the canvas -->
+        <video id="video" autoplay playsinline style="display: none;"></video>
 
-		<div>
-			<i>If the screen goes to sleep, wake it by clicking the mouse or pressing any key _|</i>
-		  <a href="about.html" >
-    About This Project
-  </a>
+        <!-- Canvas fills the screen -->
+        <canvas id="canvas"></canvas>
+      </div>
     </div>
-
-		<!-- Video is hidden but feeds the canvas -->
-		<video id="video" autoplay playsinline style="display: none;"></video>
-
-		<!-- Canvas fills the screen -->
-		<canvas id="canvas"></canvas>
-	</body>
-</html></div><!-- /div --></body></html>
+  </body>
+</html>
