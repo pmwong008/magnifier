@@ -19,6 +19,8 @@ window.onload = () => {
     }, 600); // Match transition timing
   });
 
+  startBtn.addEventListener('touchstart', initMagnifier);
+
   const video = document.getElementById('video');
   const canvas = document.getElementById('canvas');
   const ctx = canvas.getContext('2d');
